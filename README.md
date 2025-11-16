@@ -39,6 +39,7 @@ Angular CLI	—	Automação, build e scaffolding
 
 A aplicação segue uma estrutura organizada, facilitando manutenção, escalabilidade e evolução futura:
 
+```txt
 src
 ├── app
 │   ├── core                # Serviços centrais, interceptors, providers globais
@@ -50,6 +51,7 @@ src
 │
 ├── assets                  # Arquivos estáticos
 └── environments            # Configurações por ambiente (dev/prod)
+```
 
 Princípios aplicados
 
