@@ -1,0 +1,219 @@
+<div class="page">
+
+  <!-- Breadcrumb -->
+  <p-breadcrumb
+    class="mb-3"
+    [model]="[
+      { label: 'Pacientes', routerLink: ['/pacientes'] },
+      { label: pacienteId ? 'Editar paciente' : 'Novo paciente' }
+    ]">
+  </p-breadcrumb>
+
+  <!-- Header da página -->
+  <div class="page-header">
+    <div>
+      <h2 class="m-0">{{ titulo }}</h2>
+      <p class="page-subtitle">
+        Preencha os dados do paciente com atenção aos campos obrigatórios.
+      </p>
+    </div>
+
+    <button
+      pButton
+      type="button"
+      label="Voltar"
+      icon="pi pi-arrow-left"
+      class="p-button-text p-button-sm"
+      (click)="cancelar()">
+    </button>
+  </div>
+
+  <p-card>
+
+    <!-- Mensagem de erro geral -->
+    <p-messages
+      *ngIf="messages && messages.length"
+      [value]="messages"
+      [enableService]="false">
+    </p-messages>
+
+    <form [formGroup]="form" (ngSubmit)="salvar()">
+
+      <div class="p-fluid formgrid grid">
+
+        <!-- Nome / Sobrenome -->
+        <div class="field col-12 md:col-6">
+          <label for="nome">Nome *</label>
+          <input
+            id="nome"
+            type="text"
+            pInputText
+            formControlName="nome" />
+        </div>
+
+        <div class="field col-12 md:col-6">
+          <label for="sobrenome">Sobrenome *</label>
+          <input
+            id="sobrenome"
+            type="text"
+            pInputText
+            formControlName="sobrenome" />
+        </div>
+
+        <!-- Data nascimento / Gênero / CPF -->
+        <div class="field col-12 md:col-4">
+          <label for="dataNascimento">Data de nascimento *</label>
+          <p-calendar
+            id="dataNascimento"
+            formControlName="dataNascimento"
+            dateFormat="yy-MM-dd"
+            [showIcon]="true">
+          </p-calendar>
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="genero">Gênero *</label>
+          <p-dropdown
+            id="genero"
+            [options]="generos"
+            optionLabel="label"
+            optionValue="value"
+            formControlName="genero"
+            placeholder="Selecione">
+          </p-dropdown>
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="cpf">CPF</label>
+          <input
+            id="cpf"
+            type="text"
+            pInputText
+            pInputMask
+            mask="999.999.999-99"
+            formControlName="cpf"
+            class="app-masked-input w-full"/>
+        </div>
+
+        <!-- RG / UF RG / E-mail -->
+        <div class="field col-12 md:col-4">
+          <label for="rg">RG *</label>
+          <input
+            id="rg"
+            type="text"
+            pInputText
+            formControlName="rg" />
+        </div>
+
+        <div class="field col-6 md:col-2">
+          <label for="ufRg">UF RG *</label>
+          <input
+            id="ufRg"
+            type="text"
+            pInputText
+            maxlength="2"
+            formControlName="ufRg" />
+        </div>
+
+        <div class="field col-12 md:col-6">
+          <label for="email">E-mail *</label>
+          <input
+            id="email"
+            type="email"
+            pInputText
+            formControlName="email" />
+        </div>
+
+        <!-- Telefones / Convênio -->
+        <div class="field col-12 md:col-4">
+          <label for="celular">Celular</label>
+          <input
+            id="celular"
+            type="text"
+            pInputMask
+            pInputText
+            mask="(99) 99999-9999"
+            formControlName="celular"
+            class="app-masked-input w-full" />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="telefoneFixo">Telefone fixo</label>
+          <input
+            id="telefoneFixo"
+            type="text"
+            pInputMask
+            pInputText
+            mask="(99) 9999-9999"
+            formControlName="telefoneFixo"
+            class="app-masked-input w-full" />
+        </div>
+
+        <div class="field col-12 md:col-4">
+          <label for="convenioId">Convênio</label>
+          <p-dropdown
+            id="convenioId"
+            [options]="convenios"
+            optionLabel="nome"
+            optionValue="id"
+            formControlName="convenioId"
+            placeholder="Selecione">
+          </p-dropdown>
+        </div>
+
+        <!-- Carteirinha -->
+        <div class="field col-12 md:col-4">
+          <label for="numeroCarteirinha">Número da carteirinha</label>
+          <input
+            id="numeroCarteirinha"
+            type="text"
+            pInputText
+            formControlName="numeroCarteirinha" />
+        </div>
+
+        <div class="field col-6 md:col-4">
+          <label for="validadeCarteirinhaMes">Validade (mês)</label>
+          <input
+            id="validadeCarteirinhaMes"
+            type="number"
+            pInputText
+            formControlName="validadeCarteirinhaMes" />
+        </div>
+
+        <div class="field col-6 md:col-4">
+          <label for="validadeCarteirinhaAno">Validade (ano)</label>
+          <input
+            id="validadeCarteirinhaAno"
+            type="number"
+            pInputText
+            formControlName="validadeCarteirinhaAno" />
+        </div>
+
+      </div>
+
+      <!-- Ações -->
+      <p-toolbar class="mt-4 border-none surface-0 p-0">
+        <div class="p-toolbar-group-left"></div>
+        <div class="p-toolbar-group-right">
+          <button
+            pButton
+            type="button"
+            label="Cancelar"
+            class="p-button-text p-button-sm mr-2"
+            (click)="cancelar()">
+          </button>
+
+          <button
+            pButton
+            type="submit"
+            label="Salvar"
+            icon="pi pi-check"
+            class="p-button-sm app-primary-btn"
+            [disabled]="form.invalid">
+          </button>
+        </div>
+      </p-toolbar>
+
+    </form>
+  </p-card>
+</div>

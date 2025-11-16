@@ -1,0 +1,99 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.topbar {
+  height: 64px;
+  padding: 0 2rem;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.brand__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.brand__text {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.topbar__nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.topbar__link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.topbar__link:hover {
+  background: rgba(15, 23, 42, 0.16);
+}
+
+.active-link {
+  background: #fff;
+  color: var(--color-primary-dark);
+}
+
+.content {
+  flex: 1;
+  padding: 1.5rem 2rem;
+}
+
+/* =========================
+   Paleta de cores da aplicação
+   ========================== */
+:root {
+  /* Verde-água claro (principal) */
+  --app-primary: #1abc9c;       /* cor base */
+  --app-primary-hover: #16a085; /* hover levemente mais escuro */
+
+  /* Você pode usar estes depois em outros lugares */
+  --app-primary-soft-bg: #e8f8f5; /* fundo bem clarinho */
+}
+
+/* Botões principais em verde-água (substitui o azul padrão) */
+.app-primary-btn.p-button {
+  background: var(--app-primary);
+  border-color: var(--app-primary);
+  color: #ffffff;
+}
+
+.app-primary-btn.p-button:enabled:hover {
+  background: var(--app-primary-hover);
+  border-color: var(--app-primary-hover);
+}
+

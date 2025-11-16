@@ -1,1 +1,138 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================
+   PALETA GLOBAL – SISTEMA SAÚDE
+   ============================ */
+
+:root {
+  /* Cores principais (verde/teal “clínico”) */
+  --color-primary: #0f766e;
+  --color-primary-dark: #115e59;
+  --color-primary-soft: #ccfbf1;
+
+  /* Secundária (azul para ações/links) */
+  --color-secondary: #2563eb;
+  --color-secondary-soft: #dbeafe;
+
+  /* Feedback */
+  --color-danger: #dc2626;
+  --color-warning: #f59e0b;
+  --color-success: #16a34a;
+  --color-info: #0ea5e9;
+
+  /* Fundo / superfícies */
+  --color-bg: #f3f4f6;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+
+  /* Texto */
+  --color-text-main: #111827;
+  --color-text-muted: #6b7280;
+}
+
+/* ============================
+   ESTILO GLOBAL
+   ============================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+}
+
+/* Links padrão */
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Página / container padrão */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header de página (título + ações) */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.page-header__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.page-header__title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.page-header__subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* Cartão simples pra mensagens */
+.msg-card {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.msg-card--error {
+  border-color: var(--color-danger);
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.msg-card--info {
+  border-color: var(--color-info);
+  background: #ecfeff;
+}
+
+/* Ajuste leve nos componentes PrimeNG */
+.p-button {
+  font-weight: 500;
+  border-radius: 999px;
+}
+
+.p-table {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+/* Botões principais em verde-água (combina com o header) */
+.app-primary-btn.p-button {
+  background: #00a38f;
+  border-color: #00a38f;
+  color: #ffffff;
+}
+
+.app-primary-btn.p-button:enabled:hover {
+  background: #008f7d;
+  border-color: #008f7d;
+}

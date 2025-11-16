@@ -1,0 +1,84 @@
+<div class="page">
+
+  <p-breadcrumb
+    class="mb-3"
+    [model]="[{ label: 'Pacientes' }]">
+  </p-breadcrumb>
+
+  <p-toolbar class="mb-3">
+    <div class="p-toolbar-group-left">
+      <h2 class="m-0">Pacientes cadastrados</h2>
+    </div>
+    <div class="p-toolbar-group-right">
+      <button
+        pButton
+        type="button"
+        label="Novo paciente"
+        icon="pi pi-plus"
+        class="p-button-sm app-primary-btn"
+        (click)="novoPaciente()">
+      </button>
+    </div>
+  </p-toolbar>
+
+  <p-card>
+
+    <p-messages
+      *ngIf="error"
+      severity="error"
+    >
+    </p-messages>
+
+    <p-table
+      *ngIf="pacientes.length"
+      [value]="pacientes"
+      [paginator]="true"
+      [rows]="10"
+      responsiveLayout="scroll">
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+          <th style="width: 140px;">Ações</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-p>
+        <tr>
+          <td>{{ p.nome }} {{ p.sobrenome }}</td>
+          <td>{{ formatCpf(p.cpf) }}</td>
+          <td>{{ p.email }}</td>
+          <td>{{ formatTelefone(p.celular, p.telefoneFixo) }}</td>
+          <td>
+            <button
+              pButton
+              type="button"
+              icon="pi pi-pencil"
+              class="p-button-text p-button-sm"
+              (click)="editarPaciente(p)">
+            </button>
+            <button
+              pButton
+              type="button"
+              icon="pi pi-trash"
+              class="p-button-text p-button-danger p-button-sm"
+              (click)="excluirPaciente(p)">
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+
+    </p-table>
+
+    <p *ngIf="!pacientes.length && !error" class="empty-state">
+      Nenhum paciente cadastrado.
+    </p>
+
+  </p-card>
+
+  <p-confirmDialog></p-confirmDialog>
+
+</div>
