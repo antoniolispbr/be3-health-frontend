@@ -39,17 +39,18 @@ Angular CLI	—	Automação, build e scaffolding
 
 A aplicação segue uma estrutura organizada, facilitando manutenção, escalabilidade e evolução futura:
 
-src/
-├─ app/
-│  ├─ core/                 # Serviços centrais, interceptors, providers globais
-│  ├─ features/
-│  │   └─ pacientes/        # Módulo principal do desafio
-│  ├─ shared/               # Componentes e utilitários reaproveitáveis
-│  ├─ app.routes.ts         # Sistema de rotas
-│  └─ app.config.ts         # Configurações gerais da aplicação
+src
+├── app
+│   ├── core                # Serviços centrais, interceptors, providers globais
+│   ├── features
+│   │   └── pacientes       # Módulo principal do desafio
+│   ├── shared              # Componentes e utilidades reaproveitáveis
+│   ├── app.routes.ts       # Sistema de rotas
+│   └── app.config.ts       # Configurações gerais da aplicação
 │
-├─ assets/                  # Arquivos estáticos
-└─ environments/            # Configurações por ambiente (dev/prod)
+├── assets                  # Arquivos estáticos (imagens, ícones, fontes etc.)
+└── environments            # Configurações por ambiente (dev/prod)
+
 
 Princípios aplicados
 
