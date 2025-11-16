@@ -48,9 +48,8 @@ src
 │   ├── app.routes.ts       # Sistema de rotas
 │   └── app.config.ts       # Configurações gerais da aplicação
 │
-├── assets                  # Arquivos estáticos (imagens, ícones, fontes etc.)
+├── assets                  # Arquivos estáticos
 └── environments            # Configurações por ambiente (dev/prod)
-
 
 Princípios aplicados
 
