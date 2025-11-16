@@ -1,61 +1,72 @@
 Be3 Pacientes — Frontend (Angular)
-🧩 Sobre o projeto
+Frontend Application for Patient Management — Corporate Delivery
+1. Overview
 
-Este repositório contém o frontend do sistema Be3 Pacientes, desenvolvido em Angular 17 + PrimeNG.
+Este repositório contém o frontend oficial do módulo de Pacientes do sistema Be3 Health.
+A aplicação foi desenvolvida utilizando Angular 17 e PrimeNG, seguindo boas práticas de arquitetura, componentização, modularização e organização de código recomendadas para produtos corporativos.
 
-O objetivo deste projeto é demonstrar domínio de:
+Embora o desafio técnico fosse exclusivamente focado no frontend, foi desenvolvido também um backend em .NET, utilizado somente como serviço de apoio para permitir testes funcionais reais (CRUD completo).
 
-Arquitetura Angular moderna
-
-Componentização
-
-Uso de serviços e HttpClient
-
-Validações de formulários
-
-Boas práticas de UX/UI
-
-Integração real com API backend
-
-Para possibilitar testes reais e fluxo completo de CRUD, um backend em .NET foi criado especialmente para este desafio, atuando apenas como apoio (não fazia parte do escopo original do teste).
-
-➡️ Backend de apoio ao projeto:
+🔗 Backend de apoio (opcional para execução):
 https://github.com/antoniolispbr/be3-health-backend
 
-🚀 Tecnologias Utilizadas
+2. Objetivos da Solução
 
-Angular 17
+A proposta deste projeto é demonstrar:
 
-PrimeNG 17
+Implementação de interface moderna, responsiva e organizada
 
-RxJS
+Arquitetura Angular consistente com padrões corporativos
 
-TypeScript
+Fluxos completos de CRUD com tratamento de erros
 
-Angular Forms (Template-Driven ou Reactive, dependendo da tela)
+Consumo de APIs REST e integração real com backend
 
-HttpClient
+Clareza, simplicidade e escalabilidade no código
 
-PrimeFlex / CSS
+Domínio de PrimeNG, Angular Forms e gerenciamento de estado via Services
 
-📂 Estrutura do Projeto
+3. Tecnologias & Frameworks
+Tecnologia	Versão	Utilização
+Angular	17	Core da aplicação SPA
+PrimeNG	17	Componentes UI corporativos
+RxJS	—	Operações assíncronas e reatividade
+TypeScript	—	Tipagem estática e robustez
+PrimeFlex	—	Layout responsivo
+HttpClient	—	Comunicação com o backend
+Angular CLI	—	Automação e scaffolding
+4. Arquitetura do Projeto
+
+A aplicação segue uma estrutura organizada, facilitando manutenção, escalabilidade e evolução futura:
+
 src/
-│
 ├─ app/
-│  ├─ core/            # Serviços centrais
+│  ├─ core/                 # Serviços centrais, interceptors, providers globais
 │  ├─ features/
-│  │   └─ pacientes/   # Módulo principal deste desafio
-│  ├─ shared/          # Componentes utilitários
-│  └─ app.routes.ts
+│  │   └─ pacientes/        # Módulo principal do desafio
+│  ├─ shared/               # Componentes e utilitários reaproveitáveis
+│  ├─ app.routes.ts         # Sistema de rotas
+│  └─ app.config.ts         # Configurações gerais da aplicação
 │
-├─ assets/
-└─ environments/
+├─ assets/                  # Arquivos estáticos
+└─ environments/            # Configurações por ambiente (dev/prod)
 
-▶️ Como executar
-1. Instale dependências
+
+Princípios aplicados:
+
+Separação clara de responsabilidades
+
+Componentes enxutos e reutilizáveis
+
+Camada de serviço isolada para comunicação com API
+
+Estrutura de módulos organizada conforme padrões de grandes empresas
+
+5. Como Executar (Development Mode)
+1. Instalar dependências
 npm install
 
-2. Suba o servidor de desenvolvimento
+2. Subir o servidor de desenvolvimento
 npm start
 
 
@@ -64,73 +75,83 @@ Aplicação disponível em:
 http://localhost:4200
 
 
-A cada alteração, o Angular recarregará automaticamente.
+A aplicação possui live-reload automático ao alterar arquivos.
 
-🔗 Integração com Backend
+6. Integração com API
 
-Este frontend se comunica com o backend em .NET através de chamadas REST.
-
-A URL padrão da API está configurada no arquivo:
+A URL base da API é configurada em:
 
 src/environments/environment.ts
 
 
-Exemplo esperado:
+Exemplo:
 
 export const environment = {
   apiBase: 'http://localhost:5001/api'
 };
 
-📦 Build de Produção
 
-Gera os artefatos otimizados:
+Todas as operações CRUD (listar, criar, editar e excluir pacientes) são executadas via HttpClient com tratamento apropriado de erros.
+
+7. Build para Produção
+
+Gerar build otimizado:
 
 ng build
 
 
-Arquivos gerados ficarão em:
+Os artefatos serão criados em:
 
 dist/
 
-🧪 Testes
 
-Caso necessário:
+A build é adequada para pipelines CI/CD corporativas.
 
-Testes unitários
+8. Testes Automatizados (Opcional)
+
+A solução é compatível com:
+
+Testes unitários (Karma/Jasmine ou Jest)
+
+Testes E2E com Cypress ou Playwright (caso adicionados)
+
+Comando padrão:
+
 ng test
 
-Testes end-to-end
+9. Diferenciais Entregues
 
-(somente se adicionados pacotes como Cypress, Playwright ou Protractor)
+Este projeto apresenta os seguintes diferenciais, relevantes em contextos corporativos:
 
-ng e2e
+✔️ Integração real com backend
 
-🌟 Diferenciais Entregues
+✔️ Código limpo, organizado e modular
 
-Integração completa com backend real
+✔️ Camadas bem definidas (UI / Service / Models)
 
-Arquitetura organizada em módulos
+✔️ Uso adequado de PrimeNG e Angular Forms
 
-Separação clara de camadas (serviços, páginas, modelos)
+✔️ Arquitetura escalável pronta para evolução
 
-Uso extensivo de PrimeNG com foco em boa UX
+✔️ Backend adicional em .NET criado proativamente
 
-Códigos limpos e organizados
+✔️ Documentação clara e aderente a padrões corporativos
 
-Controle de estado simples e eficiente via Angular Services
+10. Conclusão
 
-✔️ Conclusão
+O projeto cumpre integralmente os requisitos funcionais do desafio de frontend e entrega uma solução:
 
-Este projeto entrega:
+estável,
 
-Todas as funcionalidades propostas para o desafio de frontend
+clara,
 
-Integração real com API
+organizada,
 
-Boas práticas de UI/UX com PrimeNG
+escalável
 
-Código organizado, limpo e escalável
+e alinhada às práticas adotadas por empresas de médio e grande porte.
 
-Backend adicional em .NET como plus para demonstrar visão full-stack e autonomia
+A inclusão de um backend completo em .NET demonstra autonomia, versatilidade e capacidade de aprendizado rápido, agregando valor ao processo de avaliação técnica.
 
-Obrigado pela oportunidade! 🙌
+Obrigado pela oportunidade!
+👋
