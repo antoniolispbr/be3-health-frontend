@@ -1,27 +1,136 @@
-# Be3Pacientes
+Be3 Pacientes — Frontend (Angular)
+🧩 Sobre o projeto
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+Este repositório contém o frontend do sistema Be3 Pacientes, desenvolvido em Angular 17 + PrimeNG.
 
-## Development server
+O objetivo deste projeto é demonstrar domínio de:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Arquitetura Angular moderna
 
-## Code scaffolding
+Componentização
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Uso de serviços e HttpClient
 
-## Build
+Validações de formulários
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Boas práticas de UX/UI
 
-## Running unit tests
+Integração real com API backend
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para possibilitar testes reais e fluxo completo de CRUD, um backend em .NET foi criado especialmente para este desafio, atuando apenas como apoio (não fazia parte do escopo original do teste).
 
-## Running end-to-end tests
+➡️ Backend de apoio ao projeto:
+https://github.com/antoniolispbr/be3-health-backend
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+🚀 Tecnologias Utilizadas
 
-## Further help
+Angular 17
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+PrimeNG 17
+
+RxJS
+
+TypeScript
+
+Angular Forms (Template-Driven ou Reactive, dependendo da tela)
+
+HttpClient
+
+PrimeFlex / CSS
+
+📂 Estrutura do Projeto
+src/
+│
+├─ app/
+│  ├─ core/            # Serviços centrais
+│  ├─ features/
+│  │   └─ pacientes/   # Módulo principal deste desafio
+│  ├─ shared/          # Componentes utilitários
+│  └─ app.routes.ts
+│
+├─ assets/
+└─ environments/
+
+▶️ Como executar
+1. Instale dependências
+npm install
+
+2. Suba o servidor de desenvolvimento
+npm start
+
+
+Aplicação disponível em:
+
+http://localhost:4200
+
+
+A cada alteração, o Angular recarregará automaticamente.
+
+🔗 Integração com Backend
+
+Este frontend se comunica com o backend em .NET através de chamadas REST.
+
+A URL padrão da API está configurada no arquivo:
+
+src/environments/environment.ts
+
+
+Exemplo esperado:
+
+export const environment = {
+  apiBase: 'http://localhost:5001/api'
+};
+
+📦 Build de Produção
+
+Gera os artefatos otimizados:
+
+ng build
+
+
+Arquivos gerados ficarão em:
+
+dist/
+
+🧪 Testes
+
+Caso necessário:
+
+Testes unitários
+ng test
+
+Testes end-to-end
+
+(somente se adicionados pacotes como Cypress, Playwright ou Protractor)
+
+ng e2e
+
+🌟 Diferenciais Entregues
+
+Integração completa com backend real
+
+Arquitetura organizada em módulos
+
+Separação clara de camadas (serviços, páginas, modelos)
+
+Uso extensivo de PrimeNG com foco em boa UX
+
+Códigos limpos e organizados
+
+Controle de estado simples e eficiente via Angular Services
+
+✔️ Conclusão
+
+Este projeto entrega:
+
+Todas as funcionalidades propostas para o desafio de frontend
+
+Integração real com API
+
+Boas práticas de UI/UX com PrimeNG
+
+Código organizado, limpo e escalável
+
+Backend adicional em .NET como plus para demonstrar visão full-stack e autonomia
+
+Obrigado pela oportunidade! 🙌
